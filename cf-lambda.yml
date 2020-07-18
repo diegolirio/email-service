@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Lambda Service
+#Metadata: 
+
+#Parameters: 
+
+#Mappings: 
+
+#Conditions: 
+
+Resources: 
+  LambdaEmailService:
+    Type: AWS::Lambda::Function
+    Properties: 
+      Code: 
+        S3Bucket: lambda-escortguide-services
+        S3Key: emailservice.jar
+        #S3ObjectVersion: String
+        #ZipFile: String
+      #DeadLetterConfig: 
+        #DeadLetterConfig
+      Description: Email Service
+      #Environment: 
+      #  Environment
+      #FileSystemConfigs: 
+      #  - FileSystemConfig
+      FunctionName: LambdaEmailService
+      Handler: com.escortguide.emailservice.EmailServiceLambdaHandler
+      #KmsKeyArn: String
+      #Layers: 
+      #  - String
+      MemorySize: 256
+      ReservedConcurrentExecutions: 2
+      Role: arn:aws:iam::639827254133:role/service-role/EMailService-role-8mz3p5w1
+      Runtime: java11
+      #Tags: 
+      #  - Tag
+      Timeout: 55
+      TracingConfig: 
+        Mode: Active
+      #VpcConfig: 
+      #  VpcConfig
